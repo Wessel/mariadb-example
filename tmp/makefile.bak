@@ -1,0 +1,37 @@
+CC = gcc
+OBJ = *.o database.o
+
+LIBS = $(mysql_config --libs) $(mysql_config --cflags) -lmysqlclient
+
+OUTDIR = out
+IDIR = include
+ODIR = obj
+LDIR = lib
+SDIR = src
+CFLAGS = -I$(IDIR)
+
+_DEPS = *.h
+DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+# SRC = $(wildcard $(SDIR)/*.0)
+_OBJ = main.o
+OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+# OBJ = $(patsubst $(SDIR)/%.c,$(ODIR)/%.o,$(SRC))
+
+$(ODIR)/%.o: $(SDIR)/%.c
+	$(CC) -o $@ $^ $(CFLAGS) $(LIBS)
+
+# $(OBJ): $(ODIR)/%.o: src/%.c $(DEPS)
+#	$(CC) -c -o $@ $< $(CFLAGS)
+
+dev: $(OBJ)
+	$(CC) -o $(OUTDIR)/$@ $^ $(CFLAGS) $(LIBS)
+
+
+prod: $(OBJ)
+	$(CC) -o $(OUTDIR)/$@ $^ $(CFLAGS) $(LIBS)
+
+
+.PHONY: clean
+
+clean:
+	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~
