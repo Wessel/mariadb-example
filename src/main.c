@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
-
+/* main.c */
 #include "../include/database.h"
 #include "../include/choicemenu.h"
 
@@ -22,6 +18,5 @@ extern char _database[56];
 
 void main() {
   init_mysql();
-
   choice_menu();
 }
