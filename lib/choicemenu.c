@@ -177,7 +177,7 @@ void choice_menu() {
     choice_menu();
     break;
   default:
-    printf("\t[INVALID CHOOCE, PLEASE PICK AGAIN]\n");
+    printf("\t[INVALID CHOICE, PLEASE PICK AGAIN]\n");
     choice_menu();
   }
 }
