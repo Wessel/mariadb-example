@@ -109,7 +109,7 @@ void row_delete() {
  * @returns Void.
  */
 void row_modify() {
-  printf("\n\t[CREATE TABLE]\n");
+  printf("\n\t[MODIFY ROW]\n");
   printf("Insert table to use:\t");
   scanf("%s", table);
   printf("Insert identifier(s) to use:\t");

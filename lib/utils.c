@@ -1,4 +1,4 @@
-
+/* utils.c */
 /** @brief Hash `str` to `hash` for use in a switch case
  *
  * A string needs to be hashed for it to be used
